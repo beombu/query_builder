@@ -4,6 +4,7 @@ import org.example.queryBuilder.conditionBuilder.OrderBuilder;
 import org.example.queryBuilder.conditionBuilder.WhereBuilder;
 import org.example.queryBuilder.constant.Column;
 import org.example.queryBuilder.constant.Table;
+import org.example.queryBuilder.dmlBuilder.DeleteBuilder;
 import org.example.queryBuilder.dmlBuilder.SelectBuilder;
 import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
 
@@ -54,5 +55,12 @@ public class Main {
                 .build();
 
         System.out.println(update.toString());
+
+        DeleteBuilder delete = new DeleteBuilder()
+                .delete(CUSTOMER)
+                .where(where)
+                .build();
+
+        System.out.println(delete.toString());
     }
 }
