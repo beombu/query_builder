@@ -5,6 +5,7 @@ import org.example.queryBuilder.conditionBuilder.WhereBuilder;
 import org.example.queryBuilder.constant.Column;
 import org.example.queryBuilder.constant.Table;
 import org.example.queryBuilder.dmlBuilder.SelectBuilder;
+import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
 
 import static org.example.queryBuilder.constant.Column.*;
 import static org.example.queryBuilder.constant.Column.CUSTOMER_ID;
@@ -36,5 +37,22 @@ public class Main {
                 .build();
 
         System.out.println(select.toString());
+
+        SelectBuilder select2 = new SelectBuilder()
+                .select(CUSTOMER_ID, CUSTOMER_NAME)
+                .from(CUSTOMER)
+                .where(where)
+                .build();
+
+        System.out.println(select2.toString());
+
+        UpdateBuilder update = new UpdateBuilder()
+                .update(CUSTOMER)
+                .set(CUSTOMER_ID, 3L)
+                .addSet(CUSTOMER_NAME, "오세한")
+                .where(where)
+                .build();
+
+        System.out.println(update.toString());
     }
 }
