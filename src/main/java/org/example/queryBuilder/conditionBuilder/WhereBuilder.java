@@ -1,10 +1,6 @@
 package org.example.queryBuilder.conditionBuilder;
 
-import org.example.queryBuilder.constant.Column;
-import org.example.queryBuilder.constant.Table;
-
 import static org.example.queryBuilder.constant.Symbol.BLANK;
-import static org.example.queryBuilder.constant.Symbol.COLON;
 import static org.example.queryBuilder.constant.Symbol.EQUAL;
 import static org.example.queryBuilder.constant.Symbol.GT;
 import static org.example.queryBuilder.constant.Symbol.GTE;
@@ -34,9 +30,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder equal(Column column, T value) {
+    public <T>WhereBuilder equal(String column, T value) {
         stringBuilder
-                .append(column.getColumn())
+                .append(column)
                 .append(BLANK.getValue())
                 .append(EQUAL.getValue())
                 .append(BLANK.getValue())
@@ -45,9 +41,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder gte(Column column, T value) {
+    public <T>WhereBuilder gte(String column, T value) {
         stringBuilder
-                .append(column.getColumn())
+                .append(column)
                 .append(BLANK.getValue())
                 .append(GTE.getValue())
                 .append(BLANK.getValue())
@@ -56,9 +52,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder lte(Column column, T value) {
+    public <T>WhereBuilder lte(String column, T value) {
         stringBuilder
-                .append(column.getColumn())
+                .append(column)
                 .append(BLANK.getValue())
                 .append(LTE.getValue())
                 .append(BLANK.getValue())
@@ -67,9 +63,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder gt(Column column, T value) {
+    public <T>WhereBuilder gt(String column, T value) {
         stringBuilder
-                .append(column.getColumn())
+                .append(column)
                 .append(BLANK.getValue())
                 .append(GT.getValue())
                 .append(BLANK.getValue())
@@ -78,9 +74,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder lt(Column column, T value) {
+    public <T>WhereBuilder lt(String column, T value) {
         stringBuilder
-                .append(column.getColumn())
+                .append(column)
                 .append(BLANK.getValue())
                 .append(LT.getValue())
                 .append(BLANK.getValue())
