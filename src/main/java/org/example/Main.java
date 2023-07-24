@@ -2,8 +2,6 @@ package org.example;
 
 import org.example.queryBuilder.conditionBuilder.OrderBuilder;
 import org.example.queryBuilder.conditionBuilder.WhereBuilder;
-import org.example.queryBuilder.constant.Column;
-import org.example.queryBuilder.constant.Table;
 import org.example.queryBuilder.dmlBuilder.DeleteBuilder;
 import org.example.queryBuilder.dmlBuilder.SelectBuilder;
 import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
@@ -17,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         WhereBuilder where = new WhereBuilder()
                 .where()
-                .gt(CUSTOMER_ID, 1L)
+                .equal(CUSTOMER_ID, 1L)
                 .and()
                 .equal(CUSTOMER_NAME, "신범철")
                 .build();

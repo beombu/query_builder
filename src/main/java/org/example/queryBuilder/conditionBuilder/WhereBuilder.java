@@ -2,6 +2,8 @@ package org.example.queryBuilder.conditionBuilder;
 
 import org.example.queryBuilder.constant.Column;
 
+import java.util.Objects;
+
 import static org.example.queryBuilder.constant.Symbol.BLANK;
 import static org.example.queryBuilder.constant.Symbol.EQUAL;
 import static org.example.queryBuilder.constant.Symbol.GT;
@@ -32,7 +34,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder equal(Column column, String value) {
+    public <T>WhereBuilder equal(Column column, T value) {
+        notifyTypeMismatch(column, value);
+
         stringBuilder
                 .append(column.getColumn())
                 .append(BLANK.getValue())
@@ -43,7 +47,15 @@ public class WhereBuilder {
         return this;
     }
 
+    private <T> void notifyTypeMismatch(Column column, T value) {
+        if (!Objects.equals(column.getType(), value.getClass().getName())) {
+              throw new IllegalArgumentException("타입이 맞지 않습니다.");
+        }
+    }
+
     public <T>WhereBuilder gte(Column column, T value) {
+        notifyTypeMismatch(column, value);
+
         stringBuilder
                 .append(column.getColumn())
                 .append(BLANK.getValue())
@@ -55,6 +67,8 @@ public class WhereBuilder {
     }
 
     public <T>WhereBuilder lte(Column column, T value) {
+        notifyTypeMismatch(column, value);
+
         stringBuilder
                 .append(column.getColumn())
                 .append(BLANK.getValue())
@@ -66,6 +80,8 @@ public class WhereBuilder {
     }
 
     public <T>WhereBuilder gt(Column column, T value) {
+        notifyTypeMismatch(column, value);
+
         stringBuilder
                 .append(column.getColumn())
                 .append(BLANK.getValue())
@@ -77,6 +93,8 @@ public class WhereBuilder {
     }
 
     public <T>WhereBuilder lt(Column column, T value) {
+        notifyTypeMismatch(column, value);
+
         stringBuilder
                 .append(column.getColumn())
                 .append(BLANK.getValue())
