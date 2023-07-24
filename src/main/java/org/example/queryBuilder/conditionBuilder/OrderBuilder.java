@@ -19,11 +19,11 @@ public class OrderBuilder {
         return stringBuilder;
     }
 
-    public OrderBuilder order(String column) {
+    public OrderBuilder order(Column column) {
         stringBuilder.append(BLANK.getValue())
                 .append(ORDER)
                 .append(BLANK.getValue())
-                .append(column);
+                .append(column.getColumn());
 
         return this;
     }

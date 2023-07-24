@@ -1,5 +1,7 @@
 package org.example.queryBuilder.conditionBuilder;
 
+import org.example.queryBuilder.constant.Column;
+
 import static org.example.queryBuilder.constant.Symbol.BLANK;
 import static org.example.queryBuilder.constant.Symbol.EQUAL;
 import static org.example.queryBuilder.constant.Symbol.GT;
@@ -30,9 +32,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder equal(String column, T value) {
+    public <T>WhereBuilder equal(Column column, String value) {
         stringBuilder
-                .append(column)
+                .append(column.getColumn())
                 .append(BLANK.getValue())
                 .append(EQUAL.getValue())
                 .append(BLANK.getValue())
@@ -41,9 +43,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder gte(String column, T value) {
+    public <T>WhereBuilder gte(Column column, T value) {
         stringBuilder
-                .append(column)
+                .append(column.getColumn())
                 .append(BLANK.getValue())
                 .append(GTE.getValue())
                 .append(BLANK.getValue())
@@ -52,9 +54,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder lte(String column, T value) {
+    public <T>WhereBuilder lte(Column column, T value) {
         stringBuilder
-                .append(column)
+                .append(column.getColumn())
                 .append(BLANK.getValue())
                 .append(LTE.getValue())
                 .append(BLANK.getValue())
@@ -63,9 +65,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder gt(String column, T value) {
+    public <T>WhereBuilder gt(Column column, T value) {
         stringBuilder
-                .append(column)
+                .append(column.getColumn())
                 .append(BLANK.getValue())
                 .append(GT.getValue())
                 .append(BLANK.getValue())
@@ -74,9 +76,9 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder lt(String column, T value) {
+    public <T>WhereBuilder lt(Column column, T value) {
         stringBuilder
-                .append(column)
+                .append(column.getColumn())
                 .append(BLANK.getValue())
                 .append(LT.getValue())
                 .append(BLANK.getValue())
