@@ -6,13 +6,9 @@ import org.example.queryBuilder.constant.Table;
 
 import java.util.Objects;
 
-import static org.example.queryBuilder.constant.Symbol.BLANK;
-import static org.example.queryBuilder.constant.Symbol.COMMA;
-import static org.example.queryBuilder.constant.Symbol.EQUAL;
-
 public class UpdateBuilder {
-    private static final String UPDATE = "UPDATE";
-    private static final String SET = "SET";
+    private static final String UPDATE = "UPDATE ";
+    private static final String SET = " SET ";
 
     private StringBuilder stringBuilder;
 
@@ -21,8 +17,8 @@ public class UpdateBuilder {
     }
 
     public UpdateBuilder update(Table table) {
-        stringBuilder.append(UPDATE)
-                .append(BLANK.getValue())
+        stringBuilder
+                .append(UPDATE)
                 .append(table.getTable());
 
         return this;
@@ -31,13 +27,10 @@ public class UpdateBuilder {
     public <T>UpdateBuilder set(Column column, T value) {
         notifyTypeMismatch(column, value);
 
-        stringBuilder.append(BLANK.getValue())
+        stringBuilder
                 .append(SET)
-                .append(BLANK.getValue())
                 .append(column.getColumn())
-                .append(BLANK.getValue())
-                .append(EQUAL.getValue())
-                .append(BLANK.getValue())
+                .append(" = ")
                 .append(value);
 
         return this;
@@ -52,12 +45,10 @@ public class UpdateBuilder {
     public <T>UpdateBuilder addSet(Column column, T value) {
         notifyTypeMismatch(column, value);
 
-        stringBuilder.append(COMMA.getValue())
-                .append(BLANK.getValue())
+        stringBuilder
+                .append(", ")
                 .append(column.getColumn())
-                .append(BLANK.getValue())
-                .append(EQUAL.getValue())
-                .append(BLANK.getValue())
+                .append(" = ")
                 .append(value);
 
         return this;

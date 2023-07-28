@@ -2,12 +2,10 @@ package org.example.queryBuilder.conditionBuilder;
 
 import org.example.queryBuilder.constant.Column;
 
-import static org.example.queryBuilder.constant.Symbol.BLANK;
-
 public class OrderBuilder {
-    private static final String ORDER = "ORDER BY";
-    private static final String ASC = "ASC";
-    private static final String DESC = "DESC";
+    private static final String ORDER = " ORDER BY ";
+    private static final String ASC = " ASC";
+    private static final String DESC = " DESC";
 
     private StringBuilder stringBuilder;
 
@@ -20,23 +18,22 @@ public class OrderBuilder {
     }
 
     public OrderBuilder order(Column column) {
-        stringBuilder.append(BLANK.getValue())
+        stringBuilder
                 .append(ORDER)
-                .append(BLANK.getValue())
                 .append(column.getColumn());
 
         return this;
     }
 
     public OrderBuilder asc() {
-        stringBuilder.append(BLANK.getValue())
+        stringBuilder
                 .append(ASC);
 
         return this;
     }
 
     public OrderBuilder desc() {
-        stringBuilder.append(BLANK.getValue())
+        stringBuilder
                 .append(DESC);
 
         return this;
