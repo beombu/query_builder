@@ -8,7 +8,11 @@ public class WhereBuilder {
     private static final String WHERE = " WHERE ";
     private static final String AND = " AND ";
     private static final String OR = " OR ";
-    private final StringBuilder stringBuilder = new StringBuilder();
+    private final StringBuilder stringBuilder;
+
+    public WhereBuilder() {
+        this.stringBuilder = new StringBuilder();
+    }
 
     public WhereBuilder where() {
         stringBuilder.append(WHERE);

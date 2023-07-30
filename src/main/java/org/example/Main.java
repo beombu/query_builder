@@ -2,9 +2,10 @@ package org.example;
 
 import org.example.queryBuilder.builder.OrderBuilder;
 import org.example.queryBuilder.builder.WhereBuilder;
-import org.example.queryBuilder.dmlBuilder.DeleteBuilder;
+import org.example.queryBuilder.builder.DeleteBuilder;
 import org.example.queryBuilder.builder.SelectBuilder;
 import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
+import org.example.queryBuilder.query.Delete;
 import org.example.queryBuilder.query.Order;
 import org.example.queryBuilder.query.Select;
 import org.example.queryBuilder.query.Where;
@@ -57,7 +58,7 @@ public class Main {
 
         System.out.println(update.toString());
 
-        DeleteBuilder delete = new DeleteBuilder()
+        Delete delete = new DeleteBuilder()
                 .delete(CUSTOMER)
                 .where(where)
                 .build();

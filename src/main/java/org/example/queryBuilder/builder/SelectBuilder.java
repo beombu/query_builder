@@ -9,7 +9,7 @@ public class SelectBuilder {
     private static final String SELECT = "SELECT ";
     private static final String FROM = " FROM ";
 
-    private StringBuilder stringBuilder;
+    private final StringBuilder stringBuilder;
 
     public SelectBuilder() {
         this.stringBuilder = new StringBuilder();
