@@ -1,32 +1,22 @@
 package org.example.queryBuilder.conditionBuilder;
 
 import org.example.queryBuilder.constant.Column;
+import org.example.queryBuilder.query.Where;
 
 import java.util.Objects;
-
 public class WhereBuilder {
     private static final String WHERE = " WHERE ";
     private static final String AND = " AND ";
     private static final String OR = " OR ";
-
-    private StringBuilder stringBuilder;
-
-    public WhereBuilder() {
-        this.stringBuilder = new StringBuilder();
-    }
-
-    public StringBuilder getStringBuilder() {
-        return stringBuilder;
-    }
+    private final StringBuilder stringBuilder = new StringBuilder();
 
     public WhereBuilder where() {
-        stringBuilder
-                .append(WHERE);
+        stringBuilder.append(WHERE);
 
         return this;
     }
 
-    public <T>WhereBuilder equal(Column column, T value) {
+    public <T> WhereBuilder equal(Column column, T value) {
         notifyTypeMismatch(column, value);
 
         stringBuilder
@@ -36,14 +26,13 @@ public class WhereBuilder {
 
         return this;
     }
-
     private <T> void notifyTypeMismatch(Column column, T value) {
         if (!Objects.equals(column.getType(), value.getClass().getName())) {
-              throw new IllegalArgumentException("타입이 맞지 않습니다.");
+            throw new IllegalArgumentException("타입이 맞지 않습니다.");
         }
     }
 
-    public <T>WhereBuilder gte(Column column, T value) {
+    public <T> WhereBuilder gte(Column column, T value) {
         notifyTypeMismatch(column, value);
 
         stringBuilder
@@ -54,7 +43,7 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder lte(Column column, T value) {
+    public <T> WhereBuilder lte(Column column, T value) {
         notifyTypeMismatch(column, value);
 
         stringBuilder
@@ -65,7 +54,7 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder gt(Column column, T value) {
+    public <T> WhereBuilder gt(Column column, T value) {
         notifyTypeMismatch(column, value);
 
         stringBuilder
@@ -76,7 +65,7 @@ public class WhereBuilder {
         return this;
     }
 
-    public <T>WhereBuilder lt(Column column, T value) {
+    public <T> WhereBuilder lt(Column column, T value) {
         notifyTypeMismatch(column, value);
 
         stringBuilder
@@ -88,24 +77,22 @@ public class WhereBuilder {
     }
 
     public WhereBuilder and() {
-        stringBuilder
-                .append(AND);
+        stringBuilder.append(AND);
 
         return this;
     }
 
     public WhereBuilder or() {
-        stringBuilder
-                .append(OR);
+        stringBuilder.append(OR);
 
-        return this;
-    }
-
-    public WhereBuilder build() {
         return this;
     }
 
     public String toString() {
         return stringBuilder.toString();
+    }
+
+    public Where Build() {
+        return new Where(this.toString());
     }
 }

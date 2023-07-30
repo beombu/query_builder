@@ -1,8 +1,8 @@
 package org.example.queryBuilder.dmlBuilder;
 
-import org.example.queryBuilder.conditionBuilder.WhereBuilder;
 import org.example.queryBuilder.constant.Column;
 import org.example.queryBuilder.constant.Table;
+import org.example.queryBuilder.query.Where;
 
 import java.util.Objects;
 
@@ -54,8 +54,8 @@ public class UpdateBuilder {
         return this;
     }
 
-    public UpdateBuilder where(WhereBuilder whereBuilder) {
-        stringBuilder.append(whereBuilder.getStringBuilder());
+    public UpdateBuilder where(Where where) {
+        stringBuilder.append(where.toString());
 
         return this;
     }

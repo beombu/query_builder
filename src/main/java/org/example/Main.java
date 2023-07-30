@@ -5,6 +5,7 @@ import org.example.queryBuilder.conditionBuilder.WhereBuilder;
 import org.example.queryBuilder.dmlBuilder.DeleteBuilder;
 import org.example.queryBuilder.dmlBuilder.SelectBuilder;
 import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
+import org.example.queryBuilder.query.Where;
 
 import static org.example.queryBuilder.constant.Column.*;
 import static org.example.queryBuilder.constant.Column.CUSTOMER_ID;
@@ -13,12 +14,12 @@ import static org.example.queryBuilder.constant.Table.*;
 
 public class Main {
     public static void main(String[] args) {
-        WhereBuilder where = new WhereBuilder()
+        Where where = new WhereBuilder()
                 .where()
                 .equal(CUSTOMER_ID, 1L)
-                .and()
-                .equal(CUSTOMER_NAME, "신범철")
-                .build();
+                .or()
+                .gt(CUSTOMER_NAME, "신범철")
+                .Build();
 
         System.out.println(where.toString());
 

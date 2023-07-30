@@ -1,8 +1,8 @@
 package org.example.queryBuilder.dmlBuilder;
 
-import org.example.queryBuilder.conditionBuilder.WhereBuilder;
 import org.example.queryBuilder.constant.Column;
 import org.example.queryBuilder.constant.Table;
+import org.example.queryBuilder.query.Where;
 
 public class SelectBuilder {
     private static final String SELECT = "SELECT ";
@@ -34,8 +34,8 @@ public class SelectBuilder {
         return this;
     }
 
-    public SelectBuilder where(WhereBuilder whereBuilder) {
-        stringBuilder.append(whereBuilder.getStringBuilder());
+    public SelectBuilder where(Where where) {
+        stringBuilder.append(where.toString());
 
         return this;
     }
