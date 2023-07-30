@@ -1,7 +1,8 @@
-package org.example.queryBuilder.dmlBuilder;
+package org.example.queryBuilder.builder;
 
 import org.example.queryBuilder.constant.Column;
 import org.example.queryBuilder.constant.Table;
+import org.example.queryBuilder.query.Update;
 import org.example.queryBuilder.query.Where;
 
 import java.util.Objects;
@@ -10,7 +11,7 @@ public class UpdateBuilder {
     private static final String UPDATE = "UPDATE ";
     private static final String SET = " SET ";
 
-    private StringBuilder stringBuilder;
+    private final StringBuilder stringBuilder;
 
     public UpdateBuilder() {
         this.stringBuilder = new StringBuilder();
@@ -60,8 +61,8 @@ public class UpdateBuilder {
         return this;
     }
 
-    public UpdateBuilder build() {
-        return this;
+    public Update build() {
+        return new Update(this.toString());
     }
 
     public String toString() {

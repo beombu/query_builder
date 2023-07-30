@@ -4,10 +4,11 @@ import org.example.queryBuilder.builder.OrderBuilder;
 import org.example.queryBuilder.builder.WhereBuilder;
 import org.example.queryBuilder.builder.DeleteBuilder;
 import org.example.queryBuilder.builder.SelectBuilder;
-import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
+import org.example.queryBuilder.builder.UpdateBuilder;
 import org.example.queryBuilder.query.Delete;
 import org.example.queryBuilder.query.Order;
 import org.example.queryBuilder.query.Select;
+import org.example.queryBuilder.query.Update;
 import org.example.queryBuilder.query.Where;
 
 import static org.example.queryBuilder.constant.Column.*;
@@ -49,7 +50,7 @@ public class Main {
 
         System.out.println(select2.toString());
 
-        UpdateBuilder update = new UpdateBuilder()
+        Update update = new UpdateBuilder()
                 .update(CUSTOMER)
                 .set(CUSTOMER_ID, 3L)
                 .addSet(CUSTOMER_NAME, "오세한")
