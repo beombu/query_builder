@@ -1,7 +1,8 @@
-package org.example.queryBuilder.dmlBuilder;
+package org.example.queryBuilder.builder;
 
 import org.example.queryBuilder.constant.Column;
 import org.example.queryBuilder.constant.Table;
+import org.example.queryBuilder.query.Select;
 import org.example.queryBuilder.query.Where;
 
 public class SelectBuilder {
@@ -40,8 +41,8 @@ public class SelectBuilder {
         return this;
     }
 
-    public SelectBuilder build() {
-        return this;
+    public Select build() {
+        return new Select(this.toString());
     }
 
     public String toString() {

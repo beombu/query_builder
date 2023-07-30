@@ -3,9 +3,10 @@ package org.example;
 import org.example.queryBuilder.builder.OrderBuilder;
 import org.example.queryBuilder.builder.WhereBuilder;
 import org.example.queryBuilder.dmlBuilder.DeleteBuilder;
-import org.example.queryBuilder.dmlBuilder.SelectBuilder;
+import org.example.queryBuilder.builder.SelectBuilder;
 import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
 import org.example.queryBuilder.query.Order;
+import org.example.queryBuilder.query.Select;
 import org.example.queryBuilder.query.Where;
 
 import static org.example.queryBuilder.constant.Column.*;
@@ -31,7 +32,7 @@ public class Main {
 
         System.out.println(order.toString());
 
-        SelectBuilder select = new SelectBuilder()
+        Select select = new SelectBuilder()
                 .select(ALL)
                 .from(CUSTOMER)
                 .where(where)
@@ -39,7 +40,7 @@ public class Main {
 
         System.out.println(select.toString());
 
-        SelectBuilder select2 = new SelectBuilder()
+        Select select2 = new SelectBuilder()
                 .select(CUSTOMER_ID, CUSTOMER_NAME)
                 .from(CUSTOMER)
                 .where(where)
