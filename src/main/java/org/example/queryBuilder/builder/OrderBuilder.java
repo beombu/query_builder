@@ -1,6 +1,7 @@
-package org.example.queryBuilder.conditionBuilder;
+package org.example.queryBuilder.builder;
 
 import org.example.queryBuilder.constant.Column;
+import org.example.queryBuilder.query.Order;
 
 public class OrderBuilder {
     private static final String ORDER = " ORDER BY ";
@@ -11,10 +12,6 @@ public class OrderBuilder {
 
     public OrderBuilder() {
         this.stringBuilder = new StringBuilder();
-    }
-
-    public StringBuilder getStringBuilder() {
-        return stringBuilder;
     }
 
     public OrderBuilder order(Column column) {
@@ -39,8 +36,8 @@ public class OrderBuilder {
         return this;
     }
 
-    public OrderBuilder build() {
-        return this;
+    public Order build() {
+        return new Order(this.toString());
     }
 
     public String toString() {

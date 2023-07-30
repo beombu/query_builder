@@ -1,4 +1,4 @@
-package org.example.queryBuilder.conditionBuilder;
+package org.example.queryBuilder.builder;
 
 import org.example.queryBuilder.constant.Column;
 import org.example.queryBuilder.query.Where;
@@ -88,11 +88,11 @@ public class WhereBuilder {
         return this;
     }
 
-    public String toString() {
-        return stringBuilder.toString();
-    }
-
     public Where Build() {
         return new Where(this.toString());
+    }
+
+    public String toString() {
+        return stringBuilder.toString();
     }
 }

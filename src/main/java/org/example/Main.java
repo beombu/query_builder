@@ -1,10 +1,11 @@
 package org.example;
 
-import org.example.queryBuilder.conditionBuilder.OrderBuilder;
-import org.example.queryBuilder.conditionBuilder.WhereBuilder;
+import org.example.queryBuilder.builder.OrderBuilder;
+import org.example.queryBuilder.builder.WhereBuilder;
 import org.example.queryBuilder.dmlBuilder.DeleteBuilder;
 import org.example.queryBuilder.dmlBuilder.SelectBuilder;
 import org.example.queryBuilder.dmlBuilder.UpdateBuilder;
+import org.example.queryBuilder.query.Order;
 import org.example.queryBuilder.query.Where;
 
 import static org.example.queryBuilder.constant.Column.*;
@@ -23,7 +24,7 @@ public class Main {
 
         System.out.println(where.toString());
 
-        OrderBuilder order = new OrderBuilder()
+        Order order = new OrderBuilder()
                 .order(CUSTOMER_NAME)
                 .asc()
                 .build();
