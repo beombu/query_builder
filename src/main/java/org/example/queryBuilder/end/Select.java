@@ -105,45 +105,49 @@ public class Select {
             return new OrderCriteria(this.columns, this.table, this.where);
         }
 
-        public static class OrderCriteria {
-            private final List<String> columns;
-            private final Class<? extends Entity> table;
-            private final Where where;
-            private Order order;
+        public Select build() {
+            return new Select(columns, table);
+        }
+    }
 
-            private OrderCriteria(List<String> columns, Class<? extends Entity> tables, Where where) {
-                this.columns = columns;
-                this.table = tables;
-                this.where = where;
-            }
+    public static class OrderCriteria {
+        private final List<String> columns;
+        private final Class<? extends Entity> table;
+        private final Where where;
+        private Order order;
 
-            public Builder order(Order order) {
-                this.order = order;
-
-                return new Builder(this.columns, this.table, this.where, this.order);
-            }
-
-            public Select build() {
-                return new Select(columns, table, where);
-            }
+        private OrderCriteria(List<String> columns, Class<? extends Entity> tables, Where where) {
+            this.columns = columns;
+            this.table = tables;
+            this.where = where;
         }
 
-        public static class Builder {
-            private final List<String> columns;
-            private final Class<? extends Entity> table;
-            private final Where where;
-            private final Order order;
+        public Builder order(Order order) {
+            this.order = order;
 
-            private Builder(List<String> columns, Class<? extends Entity> tables, Where where, Order order) {
-                this.columns = columns;
-                this.table = tables;
-                this.where = where;
-                this.order = order;
-            }
+            return new Builder(this.columns, this.table, this.where, this.order);
+        }
 
-            public Select build() {
-                return new Select(columns, table, where, order);
-            }
+        public Select build() {
+            return new Select(columns, table, where);
+        }
+    }
+
+    public static class Builder {
+        private final List<String> columns;
+        private final Class<? extends Entity> table;
+        private final Where where;
+        private final Order order;
+
+        private Builder(List<String> columns, Class<? extends Entity> tables, Where where, Order order) {
+            this.columns = columns;
+            this.table = tables;
+            this.where = where;
+            this.order = order;
+        }
+
+        public Select build() {
+            return new Select(columns, table, where, order);
         }
     }
 }
